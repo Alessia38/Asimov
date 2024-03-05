@@ -17,4 +17,4 @@ Le projet utilise :
 + le framework Bootstrap en CSS
 + le site de gestion PHPMyAdmin pour la base de données MySQL
 ***
-Ce projet est réalisé par [Alessia TORNABENE](https://github.com/Alessia38) et [Pierre MICHAUD](https://github.com/pierre/mcd38)
+Ce projet est réalisé par [Alessia TORNABENE](https://github.com/Alessia38) et [Pierre MICHAUD](https://github.com/pierre-mcd38)
