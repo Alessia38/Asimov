@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 23 avr. 2024 à 09:37
+-- Généré le : jeu. 25 avr. 2024 à 09:41
 -- Version du serveur : 8.2.0
 -- Version de PHP : 8.2.13
 
@@ -21,6 +21,10 @@ SET time_zone = "+00:00";
 -- Base de données : `asimov`
 --
 
+CREATE DATABASE asimov;
+
+USE asimov ;
+
 -- --------------------------------------------------------
 
 --
@@ -29,7 +33,7 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `classe`;
 CREATE TABLE IF NOT EXISTS `classe` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `libelle` varchar(255) DEFAULT NULL,
   `moyenne` float DEFAULT NULL,
   `nbEleve` int DEFAULT NULL,
@@ -44,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `classe` (
 
 DROP TABLE IF EXISTS `dateprojet`;
 CREATE TABLE IF NOT EXISTS `dateprojet` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `dateDebut` date DEFAULT NULL,
   `dateFin` date DEFAULT NULL,
   `idProjet` int DEFAULT NULL,
@@ -60,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `dateprojet` (
 
 DROP TABLE IF EXISTS `demandesstages`;
 CREATE TABLE IF NOT EXISTS `demandesstages` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `dateDebut` date DEFAULT NULL,
   `dateFin` date DEFAULT NULL,
   `dateAppel` date DEFAULT NULL,
@@ -82,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `demandesstages` (
 
 DROP TABLE IF EXISTS `entreprise`;
 CREATE TABLE IF NOT EXISTS `entreprise` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) DEFAULT NULL,
   `contact` varchar(255) DEFAULT NULL,
   `adresse` varchar(255) DEFAULT NULL,
@@ -97,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `entreprise` (
 
 DROP TABLE IF EXISTS `moyenne`;
 CREATE TABLE IF NOT EXISTS `moyenne` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `idUtilisateur` int DEFAULT NULL,
   `moyenne` float DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -112,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `moyenne` (
 
 DROP TABLE IF EXISTS `projet`;
 CREATE TABLE IF NOT EXISTS `projet` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `libelle` varchar(255) DEFAULT NULL,
   `idUtilisateur` int DEFAULT NULL,
   `idUtilisateurReferent` int DEFAULT NULL,
@@ -129,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `projet` (
 
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `role` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -142,9 +146,10 @@ CREATE TABLE IF NOT EXISTS `roles` (
 
 DROP TABLE IF EXISTS `utilisateurs`;
 CREATE TABLE IF NOT EXISTS `utilisateurs` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nomUtilisateur` varchar(255) DEFAULT NULL,
   `mdp` varchar(255) DEFAULT NULL,
+  `nom` varchar(255) DEFAULT NULL,
   `prenom` varchar(255) DEFAULT NULL,
   `idRole` int DEFAULT NULL,
   `idReferent` int DEFAULT NULL,
