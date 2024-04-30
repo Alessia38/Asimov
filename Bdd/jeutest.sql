@@ -41,11 +41,11 @@ INSERT INTO roles (id, role) VALUES
 (3, 'Secrétariat'),
 (4, 'Élève');
 
-INSERT INTO utilisateurs (id, nomUtilisateur, mdp, prenom, idRole, idReferent, idClasse) VALUES 
-(1, 'Diminuitto', '1234', 'Maxence', 1, 0, 0), -- Proviseur
-(2, 'Roumanet', '1234', 'David', 2, 1, 0), -- Enseignant
-(3, 'Dupont', '1234', 'Chiara', 3, 1, 0), -- Secretariat
-(4, 'Kallouch', '1234', 'Wisam', 4, 2, 3), -- Eleve
-(5, 'Benaboura', '1234', 'Aron', 4, 2, 4), -- Eleve
-(6, 'Michaud', '1234', 'Pierre', 4, 2, 5), -- Eleve
-(7, 'Bayer', '1234', 'Dawson', 4, 2, 6 ); -- Eleve
+INSERT INTO utilisateurs (id, nomUtilisateur, mdp, nom, prenom, idRole, idReferent, idClasse) VALUES 
+(1, 'Maxence.diminuitto', '1234', 'Diminuitto', 'Maxence', 1, 0, 0), -- Proviseur
+(2, 'David.roumanet', '1234', 'Roumanet', 'David', 2, 1, 0), -- Enseignant
+(3, 'Chiara.dupont', '1234', 'Dupont', 'Chiara', 3, 1, 0), -- Secretariat
+(4, 'Wisam.kallouch', '1234', 'Kallouch', 'Wisam', 4, 2, 3), -- Eleve
+(5, 'Aron.benaboura', '1234', 'Benaboura', 'Aron', 4, 2, 4), -- Eleve
+(6, 'Pierre.michaud', '1234', 'Michaud', 'Pierre', 4, 2, 5), -- Eleve
+(7, 'Dawson.bayer', '1234', 'Bayer', 'Dawson', 4, 2, 6 ); -- Eleve
