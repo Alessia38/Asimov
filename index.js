@@ -5,7 +5,11 @@ const configDB = iniparser.parseSync('./DB.ini')
 const app = express();
 
 // Importer les routes
-const connexionRoutes = require('./routes/routesConnexion.js');
+const connexionRoutes = require('./routes/routeConnexion.js');
+const eleveRoutes = require('./routes/routeEleve.js');
+const enseignantRoutes = require('./routes/routeEnseignant.js');
+const proviseurRoutes = require('./routes/routeProviseur.js');
+const secretariatRoutes = require('./routes/routeSecretariat.js');
 
 // Connection à la bdd
 let mysqlconnexion = mysql.createConnection({
@@ -36,5 +40,13 @@ app.get('/', (req, res) => {
     res.render('connexion');
 });
 
+app.get('/accueil', function(req, res) {
+    res.render('accueil');
+});
 
-
+// Utilisation des routes
+app.use('/eleve', eleveRoutes);
+app.use('/enseignant', enseignantRoutes);
+app.use('/proviseur', proviseurRoutes);
+app.use('/secretariat', secretariatRoutes);
+app.use('/connexion', connexionRoutes);

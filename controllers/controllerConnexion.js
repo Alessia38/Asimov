@@ -1,9 +1,3 @@
-/**
- * @author Alessia TORNABENE
- * @version 1.0.0
- * @description Ci-dessous se trouve le contrôleur de la connexion
-*/
-
 const modelConnexion = require('../models/connexion');
 
 const controlConnexion = {
@@ -18,16 +12,16 @@ const controlConnexion = {
                 // Vérifie le rôle de l'utilisateur et redirige en conséquence
                 switch (util.role) {
                     case 'élève':
-                        res.redirect('/dashboard_eleve');
+                        res.redirect('/eleve');
                         break;
                     case 'proviseur':
-                        res.redirect('/dashboard_proviseur');
+                        res.redirect('/proviseur');
                         break;
                     case 'enseignant':
-                        res.redirect('/dashboard_enseignant');
+                        res.redirect('/enseignant');
                         break;
                     case 'secrétariat':
-                        res.redirect('/dashboard_secrétariat');
+                        res.redirect('/secrétariat');
                         break;
                     default:
                         res.redirect('/connexion');
