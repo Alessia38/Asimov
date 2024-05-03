@@ -1,0 +1,18 @@
+.custom-bg {
+    background-color: #CCCCFF; /* Couleur de fond personnalisée pour le header */
+}
+
+/* Style personnalisé pour le bouton de déconnexion */
+.navbar-nav .nav-link {
+    border: 1px solid #333; /* Bordure d'un pixel solide */
+    padding: 8px 12px; /* Ajoute de l'espace autour du texte */
+    border-radius: 4px; /* Coins arrondis */
+    margin: 0 5px; /* Marge autour des éléments */
+    background-color: #bfbfff; /* Couleur de fond plus foncée */
+    color: #fff; /* Couleur du texte en blanc */
+}
+
+/* Style pour mettre un peu d'espace entre les boutons */
+.navbar-nav .nav-item {
+    margin-right: 10px;
+}
