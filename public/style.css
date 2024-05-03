@@ -1,54 +1,18 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+.custom-bg {
+    background-color: #CCCCFF; /* Couleur de fond personnalisée pour le header */
 }
 
-form {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Style personnalisé pour le bouton de déconnexion */
+.navbar-nav .nav-link {
+    border: 1px solid #333; /* Bordure d'un pixel solide */
+    padding: 8px 12px; /* Ajoute de l'espace autour du texte */
+    border-radius: 4px; /* Coins arrondis */
+    margin: 0 5px; /* Marge autour des éléments */
+    background-color: #bfbfff; /* Couleur de fond plus foncée */
+    color: #fff; /* Couleur du texte en blanc */
 }
 
-h1 {
-    text-align: center;
-}
-
-label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-input[type="text"],
-input[type="password"] {
-    width: calc(100% - 22px);
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-}
-
-button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #6666CC;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-button[type="submit"]:hover {
-    background-color: #330099;
-}
-
-.accueil {
-    text-align: center;
-    font-size: 75px;
+/* Style pour mettre un peu d'espace entre les boutons */
+.navbar-nav .nav-item {
+    margin-right: 10px;
 }
