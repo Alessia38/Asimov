@@ -9,7 +9,10 @@
   "author": "alessia",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "ejs": "^3.1.10",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "iniparser": "^1.0.5",
+    "mysql2": "^3.9.7"
   }
 }
