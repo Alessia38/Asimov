@@ -45,8 +45,9 @@ app.get('/accueil', function(req, res) {
 });
 
 // Utilisation des routes
-/*
+
 app.use('/eleve', eleveRoutes);
+/*
 app.use('/enseignant', enseignantRoutes);
 app.use('/proviseur', proviseurRoutes);
 app.use('/secretariat', secretariatRoutes);*/

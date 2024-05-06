@@ -3,11 +3,12 @@ const express = require('express');
 const routeur = express.Router();
 const ctrlEleve = require('../controllers/controllerEleve.js');
 
-routeur.get('/', ctrlEleve.lireClient)
-routeur.get('/modifier/:id', ctrlEleve.lireUnClient)
-routeur.post('/ajouter', ctrlEleve.ajouterClient)
-routeur.put('/modifier/:id', ctrlEleve.modifierClient)
-routeur.delete('/supprimer/:id', ctrlEleve.supprimerClient)
-routeur.get('/rechercher/:id', ctrlEleve.rechercherClient)
+routeur.get('/enseignant', ctrlEleve.getEnseignantReferent)
+routeur.get('/moyenne', ctrlEleve.getMoyenneGenerale)
+routeur.get('/projet', ctrlEleve.getProjets)
+routeur.post('/projet/inscription', ctrlEleve.inscriptionProjet)
+routeur.get('/stage', ctrlEleve.getRecherchesStage)
+routeur.get('/stage/convention', ctrlEleve.getConventionsStage)
+routeur.get('/stage/attestation', ctrlEleve.getAttestationsStage)
 
 module.exports = routeur;
