@@ -26,7 +26,7 @@ const ModelEnseignant = {
     },
 
     // Lire la moyenne générale des élèves
-    async lireMoyenneEleves(nom, prenom, classe) {
+    async lireMoyennesEleves(nom, prenom, classe) {
         let requete = "SELECT u.nom, u.prenom, m.moyenne FROM utilisateurs u JOIN moyenne m ON u.id = m.idUtilisateur WHERE u.nom = ? AND u.prenom = ? AND u.idClasse = ?";
         return new Promise((reussi, echec) => {
             mysqlconnexion.query(requete, [nom, prenom, classe], (err, lignes) => {
@@ -52,7 +52,7 @@ const ModelEnseignant = {
     },
 
     // S'inscrire à un projet
-    async InscriptionProjet(eleveId, projetId) {
+    async inscriptionProjet(eleveId, projetId) {
         let requete = "UPDATE projet SET idUtilisateur = ?, idUtilisateurReferent = ? WHERE id = ?";
         return new Promise((reussi, echec) => {
             mysqlconnexion.query(requete, [eleveId, eleveId, projetId], (err, lignes) => {
@@ -91,7 +91,7 @@ const ModelEnseignant = {
     },
 
     // Ajouter une convention de stage
-    async ajouterConventionStage(idUtilisateur, convention) {
+    async ajouterConventionsStage(idUtilisateur, convention) {
         let requete = "INSERT INTO demandesstages (convention) VALUES (1)"
         return new Promise((reussi, echec) => {
             mysqlconnexion.query(requete, [convention, idUtilisateur], (err, resultat) => {
@@ -104,7 +104,7 @@ const ModelEnseignant = {
     },
 
     // Modifier une convention de stage
-    async modifierConvention(demandeStageId) {
+    async modifierConventionsStage(demandeStageId) {
         let requete = "UPDATE demandesstages SET convention = 1 WHERE id = ?";
         return new Promise((reussi, echec) => {
             mysqlconnexion.query(requete, [demandeStageId], (err, resultat) => {
@@ -117,7 +117,7 @@ const ModelEnseignant = {
     },
 
     // Supprimer une convention de stage
-    async supprimerConvention(conventionId) {
+    async supprimerConventionsStage(conventionId) {
         const requete = "DELETE FROM demandesstages WHERE id = ?";
         return new Promise((reussi, echec) => {
             mysqlconnexion.query(requete, [conventionId], (err, resultats) => {
@@ -143,7 +143,7 @@ const ModelEnseignant = {
     },
 
     // Ajouter une attestation de stage
-    async ajouterAttestationStage(eleveId, details) {
+    async ajouterAttestationsStage(eleveId, details) {
         let requete = "INSERT INTO demandesstages (attestation) VALUES (1)";
         return new Promise((reussi, echec) => {
             mysqlconnexion.query(requete, [eleveId, details], (err, resultats) => {
@@ -156,7 +156,7 @@ const ModelEnseignant = {
     },
 
     // Modifier une attestation de stage
-    async modifierAttestationStage(attestationId, details) {
+    async modifierAttestationsStage(attestationId, details) {
         let requete = "UPDATE demandesstages SET attestation = 1 WHERE id = ?";
         return new Promise((reussi, echec) => {
             mysqlconnexion.query(requete, [details, attestationId], (err, resultats) => {
@@ -169,7 +169,7 @@ const ModelEnseignant = {
     },
 
     // Supprimer une attestation de stage
-    async supprimerAttestationStage(attestationId) {
+    async supprimerAttestationsStage(attestationId) {
         let requete = "DELETE FROM demandesstages WHERE id = ?";
         return new Promise((reussi, echec) => {
             mysqlconnexion.query(requete, [attestationId], (err, resultats) => {

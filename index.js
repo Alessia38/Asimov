@@ -1,4 +1,4 @@
-const express = require('express');
+ const express = require('express');
 const mysql = require('mysql2');
 const iniparser = require('iniparser');
 const configDB = iniparser.parseSync('./DB.ini');
@@ -47,8 +47,8 @@ app.get('/accueil', function(req, res) {
 // Utilisation des routes
 
 app.use('/eleve', eleveRoutes);
-/*
 app.use('/enseignant', enseignantRoutes);
+/*
 app.use('/proviseur', proviseurRoutes);
 app.use('/secretariat', secretariatRoutes);*/
 app.use('/connexion', connexionRoutes);
