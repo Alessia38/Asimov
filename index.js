@@ -1,11 +1,13 @@
 const express = require('express');
 const mysql = require('mysql2');
 const iniparser = require('iniparser');
+const session = require('express-session');
 const configDB = iniparser.parseSync('./DB.ini');
 const app = express();
 
 // Import des routes
 const connexionRoutes = require('./routes/routeConnexion.js');
+const deconnexionRoutes = require('./routes/routeDeconnexion.js');
 const eleveRoutes = require('./routes/routeEleve.js');
 const enseignantRoutes = require('./routes/routeEnseignant.js');
 const proviseurRoutes = require('./routes/routeProviseur.js');
@@ -23,6 +25,13 @@ mysqlconnexion.connect((err) => {
     if (!err) console.log('BDD connectée.');
     else console.log('BDD connexion échouée \n Erreur: ' + JSON.stringify(err));
 });
+
+// Configuration de la session
+app.use(session({
+    secret: 'Epoka',
+    resave: false,
+    saveUninitialized: false
+}));
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
@@ -52,5 +61,7 @@ app.use('/enseignant', enseignantRoutes);
 app.use('/proviseur', proviseurRoutes);
 app.use('/secretariat', secretariatRoutes);*/
 app.use('/connexion', connexionRoutes);
+app.use('/deconnexion', deconnexionRoutes);
 
-module.exports = app; // Exportez votre application pour pouvoir l'utiliser dans d'autres fichiers si nécessaire
+
+module.exports = app;

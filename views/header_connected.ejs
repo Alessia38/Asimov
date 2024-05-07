@@ -33,9 +33,12 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Deconnexion</a>
+                <!-- Utilisez un formulaire pour déclencher la déconnexion -->
+                <form action="/deconnexion" method="post">
+                    <!-- Utilisez un bouton de type submit pour soumettre le formulaire -->
+                    <button type="submit" class="nav-link">Déconnexion</button>
+                </form>
             </li>
         </ul>
     </div>
 </nav>
-

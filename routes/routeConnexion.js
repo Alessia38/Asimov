@@ -1,8 +1,7 @@
-// Routeur Express pour ce module
 const express = require('express');
-const routeur = express.Router();
-const ctrlConnexion = require('../controllers/controllerConnexion.js');
+const router = express.Router();
+const ctrlConnexion = require('../controllers/controllerConnexion');
 
-routeur.post('/', ctrlConnexion.controlConnexion.Connexion)
+router.post('/', ctrlConnexion.connexion);
 
-module.exports = routeur;
+module.exports = router;
