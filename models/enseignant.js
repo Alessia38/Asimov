@@ -79,7 +79,7 @@ const ModelEnseignant = {
 
     // Lire les conventions de stage d'un élève
     async lireConventionsStage(eleveId) {
-        let requete = "SELECT * FROM conventions WHERE idUtilisateur = ?";
+        let requete = "SELECT convention FROM demandesstages WHERE idUtilisateur = ?";
         return new Promise((reussi, echec) => {
             mysqlconnexion.query(requete, [eleveId], (err, lignes) => {
                 if (err) {
@@ -91,34 +91,34 @@ const ModelEnseignant = {
     },
 
     // Ajouter une convention de stage
-    async ajouterConventionStage(eleveId, details) {
-        let requete = "INSERT INTO conventions (idUtilisateur, details) VALUES (?, ?)";
+    async ajouterConventionStage(idUtilisateur, convention) {
+        let requete = "INSERT INTO demandesstages (convention) VALUES (1)"
         return new Promise((reussi, echec) => {
-            mysqlconnexion.query(requete, [eleveId, details], (err, resultats) => {
+            mysqlconnexion.query(requete, [convention, idUtilisateur], (err, resultat) => {
                 if (err) {
                     return echec(err);
                 }
-                return reussi(resultats);
+                return reussi(resultat);
             });
         });
     },
 
     // Modifier une convention de stage
-    async modifierConventionStage(conventionId, details) {
-        let requete = "UPDATE conventions SET details = ? WHERE id = ?";
+    async modifierConvention(demandeStageId) {
+        let requete = "UPDATE demandesstages SET convention = 1 WHERE id = ?";
         return new Promise((reussi, echec) => {
-            mysqlconnexion.query(requete, [details, conventionId], (err, resultats) => {
+            mysqlconnexion.query(requete, [demandeStageId], (err, resultat) => {
                 if (err) {
                     return echec(err);
                 }
-                return reussi(resultats);
+                return reussi(resultat);
             });
         });
     },
 
     // Supprimer une convention de stage
-    async supprimerConventionStage(conventionId) {
-        let requete = "DELETE FROM conventions WHERE id = ?";
+    async supprimerConvention(conventionId) {
+        const requete = "DELETE FROM demandesstages WHERE id = ?";
         return new Promise((reussi, echec) => {
             mysqlconnexion.query(requete, [conventionId], (err, resultats) => {
                 if (err) {
@@ -131,7 +131,7 @@ const ModelEnseignant = {
 
     // Lire les attestations de stage d'un élève
     async lireAttestationsStage(eleveId) {
-        let requete = "SELECT * FROM attestations WHERE idUtilisateur = ?";
+        let requete = "SELECT attestation FROM demandesstages WHERE idUtilisateur = ?";
         return new Promise((reussi, echec) => {
             mysqlconnexion.query(requete, [eleveId], (err, lignes) => {
                 if (err) {
@@ -144,7 +144,7 @@ const ModelEnseignant = {
 
     // Ajouter une attestation de stage
     async ajouterAttestationStage(eleveId, details) {
-        let requete = "INSERT INTO attestations (idUtilisateur, details) VALUES (?, ?)";
+        let requete = "INSERT INTO demandesstages (attestation) VALUES (1)";
         return new Promise((reussi, echec) => {
             mysqlconnexion.query(requete, [eleveId, details], (err, resultats) => {
                 if (err) {
@@ -157,7 +157,7 @@ const ModelEnseignant = {
 
     // Modifier une attestation de stage
     async modifierAttestationStage(attestationId, details) {
-        let requete = "UPDATE attestations SET details = ? WHERE id = ?";
+        let requete = "UPDATE demandesstages SET attestation = 1 WHERE id = ?";
         return new Promise((reussi, echec) => {
             mysqlconnexion.query(requete, [details, attestationId], (err, resultats) => {
                 if (err) {
@@ -170,7 +170,7 @@ const ModelEnseignant = {
 
     // Supprimer une attestation de stage
     async supprimerAttestationStage(attestationId) {
-        let requete = "DELETE FROM attestations WHERE id = ?";
+        let requete = "DELETE FROM demandesstages WHERE id = ?";
         return new Promise((reussi, echec) => {
             mysqlconnexion.query(requete, [attestationId], (err, resultats) => {
                 if (err) {
