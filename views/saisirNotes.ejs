@@ -1,35 +1,43 @@
 <%- include('header_connected') %>
-    <!DOCTYPE html>
-    <html lang="fr">
+<!DOCTYPE html>
+<html lang="fr">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Page de saisie des moyennes</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des moyennes</title>
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
 
-        <link rel="stylesheet" href="style.css">
-    </head>
+<body>
+    <div class="container">
+        <br>
+        <h1 class="display-4">Liste des moyennes</h1>
+        <br>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Élève</th>
+                    <th scope="col">Moyenne</th>
+                    <th scope="col">Semestre</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% moyennes.forEach(moyenne=> { %>
+                <tr>
+                    <td><%= moyenne.utilisateur %></td>
+                    <td><%= moyenne.moyenne %></td>
+                    <td><%= moyenne.semestre %></td>
+                    <td>
+                        <a href="/secretariat/modifierMoyenne/<%= moyenne.id %>" class="btn btn-warning">Modifier</a>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
 
-    <body>
-        <h1>Choisir un élève pour la moyenne :</h1>
-        <form action="/updateMoyenne" method="POST">
-            <label for="eleve">Élève :</label>
-            <select name="eleve" id="eleve">
-            </select>
-            <br>
-            <label for="semestre">Semestre :</label>
-            <select name="semestre" id="semestre">
-                <option value="1">Semestre 1</option>
-                <option value="2">Semestre 2</option>
-            </select>
-            <br>
-            <label for="note">Note :</label>
-            <input type="number" name="note" id="note" min="0" max="20">
-            <br>
-            <button type="submit">Valider</button>
-        </form>
-    </body>
-
-    </html>
+</html>

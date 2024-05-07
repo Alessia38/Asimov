@@ -60,7 +60,7 @@ app.use('/enseignant', enseignantRoutes);
 /*
 app.use('/proviseur', proviseurRoutes);
 */
-app.use('/secretariat', secretariatRoutes);
+app.use('/secretariat/', secretariatRoutes);
 app.use('/connexion', connexionRoutes);
 app.use('/deconnexion', deconnexionRoutes);
 
