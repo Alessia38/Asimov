@@ -23,11 +23,11 @@ INSERT INTO entreprise (id, nom, contact, adresse) VALUES
 (4, 'Botanic', '0470408935', '35 rue René Cassin Parc de la Châtelaine 74240 Gaillard'), 
 (5, 'A Raymond', '0476231582', '113 Berriat, 38000 Grenoble');
 
-INSERT INTO moyenne (id, idUtilisateur, moyenne) VALUES
-(1, 4, 16.45),
-(2, 5, 18.12),
-(3, 6, 11.08),
-(4, 7, 14.76);
+INSERT INTO moyenne (id, idUtilisateur, moyenne, semestre) VALUES
+(1, 4, 16.45, 1),
+(2, 5, 18.12, 1),
+(3, 6, 11.08, 1),
+(4, 7, 14.76, 1);
 
 INSERT INTO projet (id, libelle, idUtilisateur, idUtilisateurReferent) VALUES
 (1, 'Tombola', 0, 2),

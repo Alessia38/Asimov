@@ -104,6 +104,7 @@ CREATE TABLE IF NOT EXISTS `moyenne` (
   `id` int NOT NULL AUTO_INCREMENT,
   `idUtilisateur` int DEFAULT NULL,
   `moyenne` float DEFAULT NULL,
+  'semestre' int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `idUtilisateur` (`idUtilisateur`)
 );
