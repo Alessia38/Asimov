@@ -22,6 +22,11 @@ const ControllerSecretariat = {
             // Récupérer les détails de la moyenne depuis la base de données
             const moyenne = await ModelSecretariat.getMoyenneById(moyenneId);
     
+            if (!moyenne) {
+                // Si aucune moyenne n'est trouvée avec l'ID donné, renvoyer une erreur 404
+                return res.status(404).send("Moyenne non trouvée");
+            }
+            
             // Afficher la page de modification avec les détails de la moyenne
             res.render('modifierMoyenne', { moyenne });
         } catch (error) {
