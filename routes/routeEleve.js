@@ -3,7 +3,7 @@ const express = require('express');
 const routeur = express.Router();
 const ctrlEleve = require('../controllers/controllerEleve.js');
 
-routeur.get('/enseignant', ctrlEleve.getEnseignantReferent)
+routeur.get('/enseignantRef', ctrlEleve.getEnseignantReferent)
 routeur.get('/moyenne', ctrlEleve.getMoyenneGenerale)
 routeur.get('/projet', ctrlEleve.getProjets)
 routeur.post('/projet/inscription', ctrlEleve.inscriptionProjet)

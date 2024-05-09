@@ -1,8 +1,9 @@
- const express = require('express');
+const express = require('express');
 const mysql = require('mysql2');
 const iniparser = require('iniparser');
 const session = require('express-session');
 const configDB = iniparser.parseSync('./DB.ini');
+const { isAuthenticated, checkRole } = require('./authMiddleware');
 const app = express();
 
 // Import des routes
@@ -28,7 +29,7 @@ mysqlconnexion.connect((err) => {
 
 // Configuration de la session
 app.use(session({
-    secret: 'Epoka',
+    secret: 'asimov',
     resave: false,
     saveUninitialized: false
 }));
@@ -55,7 +56,7 @@ app.get('/accueil', function(req, res) {
 
 // Utilisation des routes
 
-app.use('/eleve', eleveRoutes);
+app.use('/eleve/', eleveRoutes);
 app.use('/enseignant', enseignantRoutes);
 /*
 app.use('/proviseur', proviseurRoutes);

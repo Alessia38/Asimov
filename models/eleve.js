@@ -15,7 +15,7 @@ const ModelEleve = {
 
     // Lire l'enseignant référent d'un élève
     async lireEnseignantReferent(eleveId) {
-        let requete = "SELECT u.nom, u.prenom FROM utilisateurs u WHERE u.id = (SELECT idReferent FROM utilisateurs WHERE idRole = 4 ) ?"
+        let requete = "SELECT u.nom, u.prenom FROM utilisateurs u WHERE u.id = (SELECT idReferent FROM utilisateurs WHERE id = ? AND idRole = 2)"
         return new Promise((reussi, echec) => {
             mysqlconnexion.query(requete, [eleveId], (err, lignes) => {
                 if (err) {
