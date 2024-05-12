@@ -15,7 +15,12 @@
     <div class="container">
         <br>
         <h1 class="display-4">Liste des moyennes</h1>
+
         <br>
+        <a href="/secretariat/ajouterMoyenne" class="btn btn-secondary">Ajouter</a>
+        <br><br>
+
+        <!-- Tableau pour afficher les moyennes existantes -->
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -33,6 +38,7 @@
                     <td><%= moyenne.semestre %></td>
                     <td>
                         <a href="/secretariat/modifierMoyenne/<%= moyenne.id %>" class="btn btn-warning">Modifier</a>
+                        <a href="/secretariat/supprimerMoyenne/<%= moyenne.id %>" class="btn btn-danger">Supprimer</a>
                     </td>
                 </tr>
                 <% }) %>

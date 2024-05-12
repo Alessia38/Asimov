@@ -23,6 +23,18 @@ const ModelSecretariat = {
         });
     },
 
+    getUtilisateurs: () => {
+        return new Promise((resolve, reject) => {
+            mysqlconnexion.query('SELECT * FROM utilisateurs WHERE idRole = 4', (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            });
+        });
+    },
+
     // Récupérer les détails d'une moyenne par son ID depuis la base de données
     getMoyenneById: (moyenneId) => {
         return new Promise((resolve, reject) => {
@@ -47,7 +59,34 @@ const ModelSecretariat = {
                 }
             });
         });
+    },
+
+    // Supprimer une moyenne de la base de données
+    supprimerMoyenne: (moyenneId) => {
+        return new Promise((resolve, reject) => {
+            mysqlconnexion.query('DELETE FROM moyenne WHERE id = ?', [moyenneId], (err, result) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(result);
+                }
+            });
+        });
+    },
+
+    //ajouter une nouvelle moyenne
+    ajouterMoyenne: (utilisateurId, moyenne, semestre) => {
+        return new Promise((resolve, reject) => {
+            mysqlconnexion.query('INSERT INTO moyenne (idUtilisateur, moyenne, semestre) VALUES (?, ?, ?)', [utilisateurId, moyenne, semestre], (err, result) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(result);
+                }
+            });
+        });
     }
+    
 };
 
 module.exports = ModelSecretariat;
