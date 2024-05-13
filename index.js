@@ -2,6 +2,7 @@ const express = require('express');
 const mysql = require('mysql2');
 const iniparser = require('iniparser');
 const session = require('express-session');
+const path = require('path');
 const configDB = iniparser.parseSync('./DB.ini');
 const { isAuthenticated, checkRole } = require('./authMiddleware');
 const app = express();
@@ -35,6 +36,7 @@ app.use(session({
 }));
 
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('views'));
 app.use(express.static('public'));
@@ -56,7 +58,7 @@ app.get('/accueil', function(req, res) {
 
 // Utilisation des routes
 
-app.use('/eleve/', eleveRoutes);
+app.use('/enseignantRef', eleveRoutes);
 app.use('/enseignant', enseignantRoutes);
 /*
 app.use('/proviseur', proviseurRoutes);

@@ -30,3 +30,11 @@
     margin-top: 20%;
     /* Ajouter une marge en haut pour l'espace */
 }
+
+.enseignant-info {
+    margin-bottom: 20px; /* Espacement entre chaque ensemble de données */
+}
+
+.nom, .prenom {
+    font-size: 20px; /* Taille du texte */
+}

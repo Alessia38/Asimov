@@ -1,13 +1,16 @@
-const ModelEleve = require('../models/eleve')
+const ModelEleve = require('../models/eleve');
 
 const ControllerEleve = {
     // Lire l'enseignant référent d'un élève
     async getEnseignantReferent(req, res) {
         const eleveId = req.params.id;
         try {
+            console.log("ID de l'élève :", eleveId);
             const enseignantReferent = await ModelEleve.lireEnseignantReferent(eleveId);
-            res.render('enseignantRef', { enseignantReferent });
+            console.log("Enseignant référent récupéré avec succès :", enseignantReferent);
+            res.render('enseignantRef', { enseignantReferent : enseignantReferent });
         } catch (error) {
+            console.error("Erreur lors de la récupération de l'enseignant référent de l'élève :", error);
             res.status(500).send({ error: "Erreur lors de la récupération de l'enseignant référent de l'élève." });
         }
     },

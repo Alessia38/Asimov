@@ -13,12 +13,16 @@
 
 <body>
     <div class="container">
-        <h1>Enseignant Référent</h1>
-        <ul>
-            <li>Nom: <%= enseignantReferent.nom %></li>
-            <li>Prénom: <%= enseignantReferent.prenom %></li>
-        </ul>
-    </div>
+        <br>
+        <h1 class="display-4">Enseignant Référent</h1>
+        <br>
+        <% enseignantReferent.forEach(enseignant => { %>
+        <div class="enseignant-info">
+            <div class="nom">Nom : <%= enseignant.nom %></div>
+            <div class="prenom">Prénom : <%= enseignant.prenom %></div>
+        </div>
+        <% }) %>
+    </div>    
 </body>
 
 </html>

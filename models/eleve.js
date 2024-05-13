@@ -15,13 +15,13 @@ const ModelEleve = {
 
     // Lire l'enseignant référent d'un élève
     async lireEnseignantReferent(eleveId) {
-        let requete = "SELECT u.nom, u.prenom FROM utilisateurs u WHERE u.id = (SELECT idReferent FROM utilisateurs WHERE id = ? AND idRole = 2)"
-        return new Promise((reussi, echec) => {
+        let requete = "SELECT u.nom, u.prenom FROM utilisateurs u INNER JOIN roles r ON u.idRole = r.id WHERE r.role = 'Enseignant'"
+        return new Promise((resolve, reject) => {
             mysqlconnexion.query(requete, [eleveId], (err, lignes) => {
                 if (err) {
-                    return echec(err)
+                    reject(err)
                 }
-                return reussi(lignes)
+                resolve(lignes)
             })
         })
     },
@@ -29,12 +29,12 @@ const ModelEleve = {
     // Lire la moyenne générale d'un élève
     async lireMoyenneGenerale(eleveId) {
         let requete = "SELECT moyenne FROM moyenne WHERE idUtilisateur = ?"
-        return new Promise((reussi, echec) => {
+        return new Promise((resolve, reject) => {
             mysqlconnexion.query(requete, [eleveId], (err, lignes) => {
                 if (err) {
-                    return echec(err)
+                    reject(err)
                 }
-                return reussi(lignes)
+                resolve(lignes)
             })
         })
     },
@@ -42,12 +42,12 @@ const ModelEleve = {
     // Lire les projets disponibles
     async lireProjets() {
         let requete = "SELECT * FROM projet"
-        return new Promise((reussi, echec) => {
+        return new Promise((resolve, reject) => {
             mysqlconnexion.query(requete, (err, lignes) => {
                 if (err) {
-                    return echec(err)
+                    reject (err)
                 }
-                return reussi(lignes)
+                resolve (lignes)
             })
         })
     },
@@ -55,12 +55,12 @@ const ModelEleve = {
     // S'inscrire à un projet
     async InscriptionProjet(eleveId, projetId) {
         let requete = "UPDATE projet SET idUtilisateur = ? WHERE id = ?"
-        return new Promise((reussi, echec) => {
+        return new Promise((resolve, reject) => {
             mysqlconnexion.query(requete, [eleveId, projetId], (err, lignes) => {
                 if (err) {
-                    return echec(err)
+                    reject(err)
                 }
-                return reussi(lignes)
+                resolve(lignes)
             })
         })
     },
@@ -68,12 +68,12 @@ const ModelEleve = {
     // Lire les recherches de stage d'un élève
     async lireRecherchesStage(eleveId) {
         let requete = "SELECT e.*, d.idUtilisateur FROM entreprise e JOIN demandesstages d ON e.id = d.idEntreprise WHERE d.idUtilisateur = ?"
-        return new Promise((reussi, echec) => {
+        return new Promise((resolve, reject) => {
             mysqlconnexion.query(requete, [eleveId], (err, lignes) => {
                 if (err) {
-                    return echec(err)
+                    reject(err)
                 }
-                return reussi(lignes)
+                resolve(lignes)
             })
         })
     },
@@ -81,12 +81,12 @@ const ModelEleve = {
     // Lire les conventions de stage d'un élève
     async lireConventionsStage(eleveId) {
         let requete = "SELECT convention FROM demandesstages WHERE idUtilisateur = ?"
-        return new Promise((reussi, echec) => {
+        return new Promise((resolve, reject) => {
             mysqlconnexion.query(requete, [eleveId], (err, lignes) => {
                 if (err) {
-                    return echec(err)
+                    reject(err)
                 }
-                return reussi(lignes)
+                resolve(lignes)
             })
         })
     },
@@ -94,17 +94,15 @@ const ModelEleve = {
     // Lire les attestations de stage d'un élève
     async lireAttestationsStage(eleveId) {
         let requete = "SELECT attestation FROM demandesstages WHERE idUtilisateur = ?"
-        return new Promise((reussi, echec) => {
+        return new Promise((resolve, reject) => {
             mysqlconnexion.query(requete, [eleveId], (err, lignes) => {
                 if (err) {
-                    return echec(err)
+                    reject(err)
                 }
-                return reussi(lignes)
+                resolve(lignes)
             })
         })
     }
 }
 
-module.exports = {
-    ModelEleve
-}
+module.exports = ModelEleve;
